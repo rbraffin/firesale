@@ -2,6 +2,8 @@ const { app, BrowserWindow, dialog, Menu } = require('electron');
 const createApplicationMenu = require('./application-menu');
 const fs = require('fs');
 
+if (require('electron-squirrel-startup')) app.quit();
+
 const windows = new Set();
 const openFiles = new Map();
 

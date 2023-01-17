@@ -5,24 +5,32 @@
   "description": "Completed code from [Electron in Action](http://bit.ly/electronjs).",
   "main": "app/main.js",
   "dependencies": {
-    "electron": "^1.6.10",
+    "electron-squirrel-startup": "^1.0.0",
     "marked": "^0.3.6"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
     "babel-eslint": "^7.2.3",
     "devtron": "^1.4.0",
-    "electron-packager": "^8.7.1",
+    "electron": "^22.0.2",
     "eslint": "^3.19.0",
-    "eslint-plugin-import": "^2.3.0"
+    "eslint-plugin-import": "^2.3.0",
+    "xmldom": "^0.6.0"
   },
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
     "build": "npm run build-mac && npm run build-win && npm run build-linux",
     "build-mac": "electron-packager . --platform=darwin --out=build --icon=./icons/Icon.icns --asar --overwrite",
     "build-win": "electron-packager . --platform=win32 --out=build --icon=./icons/Icons.ico --asar --overwrite",
     "build-linux": "electron-packager . --platform=linux --out=build --icon=./icons/Icons.png --asar --overwrite",
     "build-mas": "./scripts/mas/build.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "repository": {
     "type": "git",
